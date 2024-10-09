@@ -84,5 +84,5 @@ Contributions to this repository are welcome! Feel free to:
 If you want to contribute, please fork the repository and make your changes in a new branch.
 
 ## License
-This repository is licensed under the GPL v3 License. See the ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg) for more details.
+This repository is licensed under the ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg). See the LICENSE file for more details.
 
