@@ -24,8 +24,9 @@ The repository includes two key scripts:
 - **Easy Integration**: Scripts can be sourced directly from GitHub, making them reusable and easy to update.
 
 ## Installation
-To use these scripts in your R projects, you can source them directly from GitHub:
+To use these scripts in your R projects, you can source them directly from GitHub or Gitee:
 
+### From Github
 ```r
 # Source the startup script
 source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/startup.R")
@@ -34,6 +35,14 @@ source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/sta
 source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/functions.R")
 ```
 
+### From Gitee
+```r
+# Source the startup script
+source("https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/startup.R")
+
+# Source the functions script
+source("https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/functions.R")
+```
 ## Usage
 ### Setting Up a New Project
 1. **Create a New R Project** in RStudio.
