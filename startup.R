@@ -11,16 +11,23 @@ install_load <- function(packages) {
 }
 install_load(c("tidyverse", "magrittr"))
 
+# Set paths
+data_path <- "data/"
+res_path <- "res/"
+doc_path <- "doc/"
+pub_path <- "pub/"
+
 # Create project folders if they do not exist
-folders <- c("data", "res", "doc", "pub")
-for (folder in folders) {
+folders <- c(data_path, res_path, doc_path, pub_path)
+
+lapply(folders, function(folder) {
   if (!dir.exists(folder)) {
     dir.create(folder)
     message(paste("Created folder:", folder))
   } else {
     message(paste("Folder already exists:", folder))
   }
-}
+})
 
 # Set global options
 options(stringsAsFactors = FALSE)  # Avoid factors by default
