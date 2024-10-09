@@ -20,8 +20,8 @@ install_load <- function(packages) {
 # Example usage
 # install_load(c("tidyverse", "magrittr", "data.table", "lubridate"))
 
-# Function to write a pretty formatted Excel sheet
-write_excel <- function(data, filename, sheetname = "Sheet1") {
+# Function to export a pretty formatted Excel sheet
+export_pretty_excel <- function(data, filename, sheetname = "Sheet1") {
   # Load required package
   if (!requireNamespace("openxlsx", quietly = TRUE)) {
     install.packages("openxlsx")
@@ -43,11 +43,11 @@ write_excel <- function(data, filename, sheetname = "Sheet1") {
   
   # Save workbook
   saveWorkbook(wb, filename, overwrite = TRUE)
-  message("Wrote Excel sheet to: ", filename)
+  message("Exported Excel sheet to: ", filename)
 }
 
 # Example usage:
-# write_excel(iris, "Pretty_Excel.xlsx")
+# export_pretty_excel(iris, "Pretty_Excel.xlsx")
 
 # Function for Log2 transformation of specified columns
 log2_transform <- function(data, columns) {
