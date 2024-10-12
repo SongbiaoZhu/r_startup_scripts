@@ -11,6 +11,33 @@ install_load <- function(packages) {
 }
 install_load(c("tidyverse", "magrittr"))
 
+# Function to source scripts from Gitee or GitHub
+source_git <- function(script_names = c("startup.R", "functions.R"),
+                       base = "gitee") {
+  # base can be gitee, or github
+  
+  # Define the base URLs for Gitee and GitHub
+  base_url_gitee <- "https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/"
+  base_url_github <- "https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/"
+  
+  # Select the correct base URL
+  base_url <- if (base == "gitee")
+    base_url_gitee
+  else
+    base_url_github
+  
+  # Loop through the script names and source them
+  for (script in script_names) {
+    script_url <- paste0(base_url, script)
+    message("Sourcing: ", script_url)
+    source(script_url)
+  }
+}
+# source_git(
+#   script_names = c("functions.R", "make_r_friendly_names.R"),
+#   base = "gitee"
+# )
+
 # Set paths
 data_path <- "data/"
 res_path <- "res/"
@@ -32,12 +59,6 @@ lapply(folders, function(folder) {
 # Set global options
 options(stringsAsFactors = FALSE)  # Avoid factors by default
 set.seed(123)  # Set seed for reproducibility
-
-# Set default plot settings
-theme_set(theme_minimal(base_size = 14))
-
-# Check for package updates (optional)
-# update.packages(checkBuilt = TRUE, ask = FALSE)
 
 # Print message indicating the startup script has run successfully
 message("RStudio startup script executed successfully.")
