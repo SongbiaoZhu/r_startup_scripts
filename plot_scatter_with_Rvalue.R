@@ -1,18 +1,25 @@
-# Scatter Plotting Function with Customizable Settings
-# This script provides a function for generating a scatter plot with a
-# regression line and correlation coefficient.
+# --------------------------------------------------
+# Scatter Plotting Function with regression line and R value (Nature style)
+#
+# This script provides a function `plot_scatter_with_Rvalue()` for generating a scatter plot.
+# The generated scatter plot is accompanied by a regression line and correlation coefficient.
 # It includes customizable axis titles, plot title, axis limits, and breaks for enhanced flexibility.
-# Example code is provided at the end to help newcomers, but it won't run when the script is sourced.
 
-# Install and load packages
+# Instructions:
+# - To use this script, source it in your R session.
+# - An example code block is provided using `if(interactive())` so it will only run in interactive sessions.
+# --------------------------------------------------
+
+
+# Load required libraries
 library(ggplot2)
 library(ggsci)
 library(scales)
 
-# Scatter Plot Function
-# This function plots the scatter plot with a regression line and the Pearson
-# correlation coefficient (R value).
-# Arguments:
+# --------------------------------------------------
+# Function: plot_scatter_with_Rvalue
+# Description:  Plots a scatter plot with a regression line and the Pearson correlation coefficient (R value).
+# Parameters:
 #   - data: Data frame containing the variables Sample1 and Sample2 for plotting.
 #   - x_title: X-axis label (default: "Sample 1 (Log2 Abundance)").
 #   - y_title: Y-axis label (default: "Sample 2 (Log2 Abundance)").
@@ -22,6 +29,7 @@ library(scales)
 #   - range.y: Y-axis limits (default: automatically determined from data).
 #   - breaks.x: Break points for the X-axis (default: automatically determined from range.x).
 #   - breaks.y: Break points for the Y-axis (default: automatically determined from range.y).
+# --------------------------------------------------
 plot_scatter_with_Rvalue <- function(data,
                                      x_title = "Sample 1 (Log2 Abundance)",
                                      y_title = "Sample 2 (Log2 Abundance)",
@@ -93,35 +101,39 @@ plot_scatter_with_Rvalue <- function(data,
   message(paste("Plot saved as", output_file))
 }
 
-# Example code to test the function
-# Uncomment the following block to run an example plot
+# --------------------------------------------------
+# Example usage (only runs in interactive sessions)
+# --------------------------------------------------
+if (interactive()) {
+  # Simulate data and generate scatter plot
+  # Example 1: manually set axis limits and breaks
+  # Example 2: automatically set axis limits and breaks
+  set.seed(42)
+  sample_size <- 5000
+  sample1_abundance <- rnorm(sample_size, mean = 100000, sd = 3000)
+  sample2_abundance <- sample1_abundance + rnorm(sample_size, mean = 1000, sd = 1000)
+  log2_sample1 <- log2(sample1_abundance)
+  log2_sample2 <- log2(sample2_abundance)
+  data <- data.frame(Sample1 = log2_sample1, Sample2 = log2_sample2)
+  
+  plot_scatter_with_Rvalue(
+    data,
+    range.x = c(16.5, 16.75),
+    range.y = c(16.5, 16.75),
+    breaks.x = seq(16.5, 16.75, 0.05),
+    breaks.y = seq(16.5, 16.75, 0.05),
+    x_title = "Custom X Axis Title",
+    y_title = "Custom Y Axis Title",
+    plot_title = "Custom Plot Title",
+    output_file = "scatter_plot_manual_limits.png"
+  )
+  
+  plot_scatter_with_Rvalue(
+    data,
+    x_title = "Custom X Axis Title",
+    y_title = "Custom Y Axis Title",
+    plot_title = "Custom Plot Title",
+    output_file = "scatter_plot_auto_limits.png"
+  )
+}
 
-# Example Code:
-# Simulate data and generate scatter plot
-# Example 1: manually set axis limits and breaks
-# Example 2: automatically set axis limits and breaks
-set.seed(42)
-sample_size <- 5000
-sample1_abundance <- rnorm(sample_size, mean = 100000, sd = 3000)
-sample2_abundance <- sample1_abundance + rnorm(sample_size, mean = 1000, sd = 1000)
-log2_sample1 <- log2(sample1_abundance)
-log2_sample2 <- log2(sample2_abundance)
-data <- data.frame(Sample1 = log2_sample1, Sample2 = log2_sample2)
-plot_scatter_with_Rvalue(
-  data,
-  range.x = c(16.5, 16.75),
-  range.y = c(16.5, 16.75),
-  breaks.x = seq(16.5, 16.75, 0.05),
-  breaks.y = seq(16.5, 16.75, 0.05),
-  x_title = "Custom X Axis Title",
-  y_title = "Custom Y Axis Title",
-  plot_title = "Custom Plot Title",
-  output_file = "scatter_plot_manual_limits.png"
-)
-plot_scatter_with_Rvalue(
-  data,
-  x_title = "Custom X Axis Title",
-  y_title = "Custom Y Axis Title",
-  plot_title = "Custom Plot Title",
-  output_file = "scatter_plot_auto_limits.png"
-)
