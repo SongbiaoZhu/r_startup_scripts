@@ -100,37 +100,35 @@ plot_bars_by_group <- function(data,
   )
 }
 
-## Not run:
-# Example usage:
-# Simulated data with grouping
-
-# df <- data.frame(
-#   Sample = paste0("Sample_", 1:6),
-#   Protein_ID_Number = c(3200, 1600, 2500, 4600, 2700, 3156),
-#   Group = c(rep("A", 3), rep("B", 3))
-# )
-# 
-# # Plot by sample
-# plot_bars_by_sample(
-#   df,
-#   x = "Sample",
-#   y = "Protein_ID_Number",
-#   output_file = "barplot_by_sample.png",
-#   x_axis_name = "Sample",
-#   y_axis_name = "Protein Counts",
-#   plot_title = "Protein Identification by Sample"
-# )
-# 
-# # Plot by group
-# plot_bars_by_group(
-#   df,
-#   x = "Sample",
-#   y = "Protein_ID_Number",
-#   group = "Group",
-#   output_file = "barplot_by_group.png",
-#   x_axis_name = "Sample",
-#   y_axis_name = "Protein Counts",
-#   plot_title = "Protein Identification by Group"
-# )
-
-## End(Not run)
+#' @examples
+if (interactive()) {
+  # Simulate example data
+  df <- data.frame(
+    Sample = paste0("Sample_", 1:6),
+    Protein_ID_Number = c(3200, 1600, 2500, 4600, 2700, 3156),
+    Group = c(rep("A", 3), rep("B", 3))
+  )
+  
+  # Plot by sample
+  plot_bars_by_sample(
+    df,
+    x = "Sample",
+    y = "Protein_ID_Number",
+    output_file = "barplot_by_sample_example.png",
+    x_axis_name = "Sample",
+    y_axis_name = "Protein Counts",
+    plot_title = "Protein Identification by Sample"
+  )
+  
+  # Plot by group
+  plot_bars_by_group(
+    df,
+    x = "Sample",
+    y = "Protein_ID_Number",
+    group = "Group",
+    output_file = "barplot_by_group_example.png",
+    x_axis_name = "Sample",
+    y_axis_name = "Protein Counts",
+    plot_title = "Protein Identification by Group"
+  )
+}
