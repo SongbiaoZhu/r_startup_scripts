@@ -28,11 +28,15 @@ Here’s how to use the scripts in a new project:
 ```r
 # Load project setup and utility functions
 ## from gitee
+### step 1. source startup.R
 source("https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/startup.R")
+### step 2. source xxx.R dependent on your specific need
 source("https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/export_pretty_excel.R")
 
 ## or from github
+### step 1. source startup.R
 source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/startup.R")
+### step 2. source xxx.R dependent on your specific need
 source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/export_pretty_excel.R")
 
 # Use the helper function to export a formatted Excel file
