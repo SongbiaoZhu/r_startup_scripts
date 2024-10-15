@@ -64,9 +64,8 @@ export_pretty_excel(data = iris, filename = "example.xlsx", sheetname = "Iris Da
 ## Available Functions
 Here’s a brief overview of the key functions included in `functions.R`:
 
-* `export_pretty_excel()`: Exports a data frame to a well-formatted Excel sheet.
-* `create_folders()`: Creates a standardized folder structure for new projects.
 * `install_load()`: Installs and loads required CRAN and Bioconductor packages.
+* `export_pretty_excel()`: Exports a data frame to a well-formatted Excel sheet.
 * **Custom plotting functions**: Includes templates for density plots, correlation matrices, and volcano plots.
 
 ## Folder Structure Setup
