@@ -1,11 +1,9 @@
 # R Startup Scripts and Proteomics Helper Functions
 
-Welcome to the **`r_startup_scripts`** repository! This repository contains R scripts and custom functions to streamline your R project setups and enhance your workflow, particularly for proteomics data analysis. These scripts are designed to be sourced directly from GitHub for easy integration into new projects.
+Welcome to the **`r_startup_scripts`** repository! This repository contains R scripts and custom functions to streamline your R project setups and enhance your workflow, particularly for proteomics data analysis. These scripts are designed to be sourced directly from Gitee or GitHub for easy integration into new projects.
 
 ## Table of Contents
 - [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Available Functions](#available-functions)
 - [Folder Structure Setup](#folder-structure-setup)
@@ -15,34 +13,9 @@ Welcome to the **`r_startup_scripts`** repository! This repository contains R sc
 ## Overview
 The repository includes two key scripts:
 1. **`startup.R`**: A startup script to automate common setup tasks whenever you start a new R project.
-2. **`functions.R`**: A collection of utility functions for various tasks, such as exporting data to Excel, creating publication-ready plots, and manipulating proteomics data.
+2. **`plot_xxx.R`**: A collection of utility functions for plotting.
+3. **`xxx_.R`**: A collection of utility functions for various tasks, such as exporting data to Excel, and manipulating proteomics data.
 
-## Features
-- **Automatic Package Installation**: The `install_load()` function ensures required R packages are installed and loaded.
-- **Folder Setup**: Automatically creates common project folders (`data`, `res`, `doc`, `pub`) if they do not exist.
-- **Custom Helper Functions**: Pre-defined functions for tasks like exporting formatted Excel sheets, generating custom plots, and more.
-- **Easy Integration**: Scripts can be sourced directly from GitHub, making them reusable and easy to update.
-
-## Installation
-To use these scripts in your R projects, you can source them directly from GitHub or Gitee:
-
-### From Github
-```r
-# Source the startup script
-source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/startup.R")
-
-# Source the functions script
-source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/functions.R")
-```
-
-### From Gitee
-```r
-# Source the startup script
-source("https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/startup.R")
-
-# Source the functions script
-source("https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/functions.R")
-```
 ## Usage
 ### Setting Up a New Project
 1. **Create a New R Project** in RStudio.
@@ -54,10 +27,15 @@ Here’s how to use the scripts in a new project:
 
 ```r
 # Load project setup and utility functions
-source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/startup.R")
-source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/functions.R")
+## from gitee
+source("https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/startup.R")
+source("https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/export_pretty_excel.R")
 
-# Use one of the helper functions to export a formatted Excel file
+## or from github
+source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/startup.R")
+source("https://raw.githubusercontent.com/SongbiaoZhu/r_startup_scripts/main/export_pretty_excel.R")
+
+# Use the helper function to export a formatted Excel file
 export_pretty_excel(data = iris, filename = "example.xlsx", sheetname = "Iris Data")
 ```
 
