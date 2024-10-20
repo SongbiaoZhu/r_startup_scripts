@@ -28,8 +28,12 @@ plot_pca <- function(data,
                      y_axis_name = "PC2",
                      show_labels = FALSE,
                      output_file) {
+  
   # Load necessary libraries
   library(ggplot2)
+  
+  # Nature journal color palette
+  nature_palette <- c("#E41A1C", "#377EB8", "#4DAF4A", "#FF7F00", "#984EA3", "#A65628", "#FFFF33")
   
   # Perform PCA on transposed data
   pca_result <- prcomp(t(data), center = TRUE, scale. = TRUE)
@@ -56,22 +60,19 @@ plot_pca <- function(data,
                         "%)",
                         sep = "")
   
+  # Generate color palette based on number of groups
+  num_groups <- length(unique(group_var))
+  colors <- nature_palette[1:num_groups]
+  
   # Create the PCA plot
   p <- ggplot(pca_data, aes(x = PC1, y = PC2, color = Group)) +
     geom_point(size = 3, alpha = 0.7) +  # Points
     labs(title = title, x = x_axis_label, y = y_axis_label) +  # Title and axis labels
-    scale_color_manual(values = c(
-      "#0072B2",
-      "#D55E00"
-    )) +  # Custom colors
+    scale_color_manual(values = colors) +  # Automatically use Nature colors
     theme_classic() +
     theme(
       text = element_text(size = 14, family = "Arial"),
-      plot.title = element_text(
-        hjust = 0.5,
-        size = 16,
-        face = "bold"
-      ),
+      plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
       axis.title = element_text(size = 14),
       axis.text = element_text(size = 12),
       legend.title = element_text(size = 12),
