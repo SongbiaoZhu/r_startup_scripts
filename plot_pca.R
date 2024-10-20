@@ -61,8 +61,8 @@ plot_pca <- function(data,
     geom_point(size = 3, alpha = 0.7) +  # Points
     labs(title = title, x = x_axis_label, y = y_axis_label) +  # Title and axis labels
     scale_color_manual(values = c(
-      "Control" = "#0072B2",
-      "Treatment" = "#D55E00"
+      "#0072B2",
+      "#D55E00"
     )) +  # Custom colors
     theme_classic() +
     theme(
