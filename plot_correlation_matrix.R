@@ -40,7 +40,7 @@ plot_correlation_matrix <- function(data,
   
   # Plot scatter correlation matrix in Nature journal style
   psych::pairs.panels(
-    data,
+    x = data,
     method = "pearson",
     hist.col = "gray",
     # Histogram color
