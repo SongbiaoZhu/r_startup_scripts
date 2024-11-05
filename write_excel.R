@@ -41,15 +41,19 @@ write_excel <- function(df, file_path, sheet_name = "Sheet1") {
   
   # Step 5: Apply styling to header row (Bold, centered, white text on blue background)
   header_style <- openxlsx::createStyle(
-    fontSize = 12, 
-    fontColour = "white", 
-    fgFill = "#4F81BD", 
-    halign = "center", 
-    textDecoration = "bold"
+    fontSize = 14,         # Larger font size for header
+    fontColour = "white",  # White text color for header
+    fgFill = "#4F81BD",    # Background color (blue)
+    halign = "center",     # Center align the header
+    valign = "center",     # Vertically center the header text
+    textDecoration = "bold" # Make header text bold
   )
   openxlsx::addStyle(wb, sheet_name, style = header_style, rows = 1, cols = 1:ncol(df), gridExpand = TRUE)
   
-  # Step 6: Apply styling for data rows (borders around each cell)
+  # Step 6: Increase the height of the header row to make it more prominent
+  openxlsx::setRowHeights(wb, sheet_name, rows = 1, heights = 30)  # Adjust the height (e.g., 30 pixels)
+  
+  # Step 7: Apply styling for data rows (borders around each cell)
   data_style <- openxlsx::createStyle(
     fontSize = 11,
     border = "TopBottomLeftRight",
@@ -57,11 +61,11 @@ write_excel <- function(df, file_path, sheet_name = "Sheet1") {
   )
   openxlsx::addStyle(wb, sheet_name, style = data_style, rows = 2:(nrow(df) + 1), cols = 1:ncol(df), gridExpand = TRUE)
   
-  # Step 7: Freeze the top row and add filters
+  # Step 8: Freeze the top row and add filters
   openxlsx::freezePane(wb, sheet_name, firstRow = TRUE)
   openxlsx::addFilter(wb, sheet_name, rows = 1, cols = 1:ncol(df))
   
-  # Step 8: Save the workbook to the specified file path
+  # Step 9: Save the workbook to the specified file path
   openxlsx::saveWorkbook(wb, file_path, overwrite = TRUE)
   
   # Inform the user that the data has been written successfully
