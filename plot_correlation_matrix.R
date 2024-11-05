@@ -33,14 +33,14 @@ plot_correlation_matrix <- function(data,
                                     plot_title = "Correlation Matrix of Protein Abundance",
                                     text_size = 1.8) {
   # Save the plot in a publication-ready format
-  png(output_file,
+  png(filename = output_file,
       width = 1200,
       height = 1200,
       res = 150)
   
   # Plot scatter correlation matrix in Nature journal style
   psych::pairs.panels(
-    data,
+    x = data,
     method = "pearson",
     hist.col = "gray",
     # Histogram color
