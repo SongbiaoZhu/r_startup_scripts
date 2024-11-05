@@ -88,14 +88,14 @@ plot_volcano_straight <- function(data,
 }
 
 #' @examples
-if (interactive()) {
-  # Load dataset from the provided URL
-  data_url <- "https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/example_data/WT_vs_KI-HFHC_example.csv"
-  data <- read.csv(data_url)
-  
-  # Example usage of the plot_volcano function
-  plot_volcano_straight(data,
-                        log2fc = "log2FC",
-                        p_value = "pvalue",
-                        output_file = "volcano_straight_example.png")
-}
+# if (interactive()) {
+#   # Load dataset from the provided URL
+#   data_url <- "https://gitee.com/zhu_song_biao/r_startup_scripts/raw/main/example_data/WT_vs_KI-HFHC_example.csv"
+#   data <- read.csv(data_url)
+#   
+#   # Example usage of the plot_volcano function
+#   plot_volcano_straight(data,
+#                         log2fc = "log2FC",
+#                         p_value = "pvalue",
+#                         output_file = "volcano_straight_example.png")
+# }

@@ -74,21 +74,21 @@ plot_scatter_with_regression <- function(data,
   }
 }
 #' @examples
-if (interactive()) {
-  # Generate a sample dataset with a linear correlation
-  set.seed(123)
-  data <- data.frame(
-    x = rnorm(50, mean = 5)
-  ) %>% 
-    dplyr::mutate(y = 2 * x + rnorm(50, sd = 0.5))
-  # Example usage of the plot function
-  plot_scatter_with_regression(
-    data = data,
-    x_var = "x",
-    y_var = "y",
-    output_file = NULL,  # Set to a filename to save, e.g., "scatter_plot.png"
-    x_label = "X Values",
-    y_label = "Y Values",
-    title = "Sample Scatter Plot with Regression"
-  )
-}
+# if (interactive()) {
+#   # Generate a sample dataset with a linear correlation
+#   set.seed(123)
+#   data <- data.frame(
+#     x = rnorm(50, mean = 5)
+#   ) %>% 
+#     dplyr::mutate(y = 2 * x + rnorm(50, sd = 0.5))
+#   # Example usage of the plot function
+#   plot_scatter_with_regression(
+#     data = data,
+#     x_var = "x",
+#     y_var = "y",
+#     output_file = NULL,  # Set to a filename to save, e.g., "scatter_plot.png"
+#     x_label = "X Values",
+#     y_label = "Y Values",
+#     title = "Sample Scatter Plot with Regression"
+#   )
+# }

@@ -75,32 +75,32 @@ plot_correlation_matrix <- function(data,
 # --------------------------------------------------
 # Example usage (only runs in interactive sessions)
 # --------------------------------------------------
-if (interactive()) {
-  # Load necessary package for simulation
-  library(MASS)
-  
-  # Simulate example data
-  set.seed(123)
-  n_proteins <- 5000
-  n_samples <- 6
-  mean_abundance <- rep(1E5, n_samples)
-  sd_abundance <- rep(2E4, n_samples)
-  cor_matrix <- matrix(0.6, n_samples, n_samples)
-  diag(cor_matrix) <- 1
-  protein_abundance_matrix <- mvrnorm(n = n_proteins,
-                                      mu = mean_abundance,
-                                      Sigma = cor_matrix * sd_abundance ^ 2)
-  
-  # Convert to dataframe and log2 transform the data
-  protein_abundance <- as.data.frame(protein_abundance_matrix)
-  colnames(protein_abundance) <- c("Control1",
-                                   "Control2",
-                                   "Control3",
-                                   "Treat1",
-                                   "Treat2",
-                                   "Treat3")
-  protein_abundance_log2 <- log2(protein_abundance)
-  
-  # Draw the correlation matrix with custom settings
-  plot_correlation_matrix(protein_abundance_log2, output_file = "correlation_matrix_example.png")
-}
+# if (interactive()) {
+#   # Load necessary package for simulation
+#   library(MASS)
+#   
+#   # Simulate example data
+#   set.seed(123)
+#   n_proteins <- 5000
+#   n_samples <- 6
+#   mean_abundance <- rep(1E5, n_samples)
+#   sd_abundance <- rep(2E4, n_samples)
+#   cor_matrix <- matrix(0.6, n_samples, n_samples)
+#   diag(cor_matrix) <- 1
+#   protein_abundance_matrix <- mvrnorm(n = n_proteins,
+#                                       mu = mean_abundance,
+#                                       Sigma = cor_matrix * sd_abundance ^ 2)
+#   
+#   # Convert to dataframe and log2 transform the data
+#   protein_abundance <- as.data.frame(protein_abundance_matrix)
+#   colnames(protein_abundance) <- c("Control1",
+#                                    "Control2",
+#                                    "Control3",
+#                                    "Treat1",
+#                                    "Treat2",
+#                                    "Treat3")
+#   protein_abundance_log2 <- log2(protein_abundance)
+#   
+#   # Draw the correlation matrix with custom settings
+#   plot_correlation_matrix(protein_abundance_log2, output_file = "correlation_matrix_example.png")
+# }

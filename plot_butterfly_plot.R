@@ -113,21 +113,21 @@ plot_butterfly_plot <- function(data,
 }
 
 #' @examples
-if (interactive()) {
-  # Simulate a dataset with sample names and protein/peptide counts
-  data <- data.frame(
-    Sample = c("Control_1", "Control_2", "Control_3", "Treat_1", "Treat_2", "Treat_3"),
-    Proteins = c(4500, 4300, 4600, 4700, 4800, 4900),  # Protein counts in thousands
-    Peptides = c(30000, 32000, 31000, 33000, 34000, 35000)  # Peptide counts in tens of thousands
-  )
-
-  # Generate a butterfly plot with automatic legend names from variables
-  plot_butterfly_plot(
-    data = data,
-    sample_var = "Sample",
-    left_var = "Proteins",
-    right_var = "Peptides",
-    output_file = "butterfly_plot.png",
-    title = "Protein and Peptide Numbers"
-  )
-}
+# if (interactive()) {
+#   # Simulate a dataset with sample names and protein/peptide counts
+#   data <- data.frame(
+#     Sample = c("Control_1", "Control_2", "Control_3", "Treat_1", "Treat_2", "Treat_3"),
+#     Proteins = c(4500, 4300, 4600, 4700, 4800, 4900),  # Protein counts in thousands
+#     Peptides = c(30000, 32000, 31000, 33000, 34000, 35000)  # Peptide counts in tens of thousands
+#   )
+# 
+#   # Generate a butterfly plot with automatic legend names from variables
+#   plot_butterfly_plot(
+#     data = data,
+#     sample_var = "Sample",
+#     left_var = "Proteins",
+#     right_var = "Peptides",
+#     output_file = "butterfly_plot.png",
+#     title = "Protein and Peptide Numbers"
+#   )
+# }

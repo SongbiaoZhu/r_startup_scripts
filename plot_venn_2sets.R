@@ -83,16 +83,16 @@ plot_venn_2sets <- function(set1,
 # --------------------------------------------------
 # Example usage (only runs in interactive sessions)
 # --------------------------------------------------
-if (interactive()) {
-  set.seed(123)
-  set1 <- sample(1:100, 50)
-  set2 <- sample(30:130, 100)
-  
-  # Draw the Venn diagram with custom settings
-  plot_venn_2sets(
-    set1, set2,
-    set1_name = "Group A",
-    set2_name = "Group B",
-    output_file = "venn_2sets_example.png"
-  )
-}
+# if (interactive()) {
+#   set.seed(123)
+#   set1 <- sample(1:100, 50)
+#   set2 <- sample(30:130, 100)
+#   
+#   # Draw the Venn diagram with custom settings
+#   plot_venn_2sets(
+#     set1, set2,
+#     set1_name = "Group A",
+#     set2_name = "Group B",
+#     output_file = "venn_2sets_example.png"
+#   )
+# }

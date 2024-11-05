@@ -103,47 +103,47 @@ plot_pca <- function(data,
 }
 
 #' @examples
-if (interactive()) {
-  # Example: Creating a PCA plot with simulated protein abundance data.
-  set.seed(123)  # For reproducibility
-  num_proteins <- 5000
-  num_samples <- 6
-  
-  # Simulated data: 3 control and 3 treatment samples
-  control_data <- matrix(rnorm(
-    num_proteins * num_samples * 0.5,
-    mean = 100,
-    sd = 20
-  ), nrow = num_proteins)
-  treatment_data <- matrix(rnorm(
-    num_proteins * num_samples * 0.5,
-    mean = 120,
-    sd = 20
-  ), nrow = num_proteins)
-  colnames(control_data) <- paste0("Control_", 1:3)
-  colnames(treatment_data) <- paste0("Treatment_", 1:3)
-  
-  # Convert to data frame and bind columns
-  abundance_df <- as.data.frame(cbind(control_data, treatment_data))
-  
-  # Prepare group variable
-  group_var <- factor(rep(c("Control", "Treatment"), each = 3))
-  
-  # Generating the PCA plot without labels.
-  plot_pca(
-    data = abundance_df,
-    group_var = group_var,
-    output_file = "pca_plot_nolabel_example.png",
-    title = "PCA of Protein Abundance",
-    show_labels = FALSE
-  )
-  
-  # Generating the PCA plot with labels.
-  plot_pca(
-    data = abundance_df,
-    group_var = group_var,
-    output_file = "pca_plot_label_example.png",
-    title = "PCA of Protein Abundance",
-    show_labels = TRUE
-  )
-}
+# if (interactive()) {
+#   # Example: Creating a PCA plot with simulated protein abundance data.
+#   set.seed(123)  # For reproducibility
+#   num_proteins <- 5000
+#   num_samples <- 6
+#   
+#   # Simulated data: 3 control and 3 treatment samples
+#   control_data <- matrix(rnorm(
+#     num_proteins * num_samples * 0.5,
+#     mean = 100,
+#     sd = 20
+#   ), nrow = num_proteins)
+#   treatment_data <- matrix(rnorm(
+#     num_proteins * num_samples * 0.5,
+#     mean = 120,
+#     sd = 20
+#   ), nrow = num_proteins)
+#   colnames(control_data) <- paste0("Control_", 1:3)
+#   colnames(treatment_data) <- paste0("Treatment_", 1:3)
+#   
+#   # Convert to data frame and bind columns
+#   abundance_df <- as.data.frame(cbind(control_data, treatment_data))
+#   
+#   # Prepare group variable
+#   group_var <- factor(rep(c("Control", "Treatment"), each = 3))
+#   
+#   # Generating the PCA plot without labels.
+#   plot_pca(
+#     data = abundance_df,
+#     group_var = group_var,
+#     output_file = "pca_plot_nolabel_example.png",
+#     title = "PCA of Protein Abundance",
+#     show_labels = FALSE
+#   )
+#   
+#   # Generating the PCA plot with labels.
+#   plot_pca(
+#     data = abundance_df,
+#     group_var = group_var,
+#     output_file = "pca_plot_label_example.png",
+#     title = "PCA of Protein Abundance",
+#     show_labels = TRUE
+#   )
+# }

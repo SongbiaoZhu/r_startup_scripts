@@ -126,48 +126,48 @@ plot_violinplot <- function(data,
 }
 
 #' @examples
-if (interactive()) {
-  # Simulate a dataset with 6 samples (Control 1-3, Treat 1-3)
-  set.seed(123)
-  data <- data.frame(
-    Sample = rep(
-      c(
-        "Control_1",
-        "Control_2",
-        "Control_3",
-        "Treat_1",
-        "Treat_2",
-        "Treat_3"
-      ),
-      each = 10
-    ),
-    Abundance = c(rnorm(30, mean = 10, sd = 1), rnorm(30, mean = 12, sd = 1)),
-    Group = rep(c("Control", "Treat"), each = 30)
-  )
-  
-  # Case 1: Plot by Sample, no group_var provided
-  plot_violinplot(
-    data,
-    x_var = "Sample",
-    y_var = "Abundance",
-    group_var = NULL,
-    # No grouping, color by Sample
-    output_file = "violinplot_by_sample.png",
-    x_label = "Sample",
-    y_label = "Log2 Abundance",
-    title = "Violin Plot of Abundance by Sample"
-  )
-  
-  # Case 2: Plot by Group, show legend
-  plot_violinplot(
-    data,
-    x_var = "Sample",
-    y_var = "Abundance",
-    group_var = "Group",
-    # Grouping by Group, show legend
-    output_file = "violinplot_by_group.png",
-    x_label = "Sample",
-    y_label = "Log2 Abundance",
-    title = "Violin Plot of Abundance by Group"
-  )
-}
+# if (interactive()) {
+#   # Simulate a dataset with 6 samples (Control 1-3, Treat 1-3)
+#   set.seed(123)
+#   data <- data.frame(
+#     Sample = rep(
+#       c(
+#         "Control_1",
+#         "Control_2",
+#         "Control_3",
+#         "Treat_1",
+#         "Treat_2",
+#         "Treat_3"
+#       ),
+#       each = 10
+#     ),
+#     Abundance = c(rnorm(30, mean = 10, sd = 1), rnorm(30, mean = 12, sd = 1)),
+#     Group = rep(c("Control", "Treat"), each = 30)
+#   )
+#   
+#   # Case 1: Plot by Sample, no group_var provided
+#   plot_violinplot(
+#     data,
+#     x_var = "Sample",
+#     y_var = "Abundance",
+#     group_var = NULL,
+#     # No grouping, color by Sample
+#     output_file = "violinplot_by_sample.png",
+#     x_label = "Sample",
+#     y_label = "Log2 Abundance",
+#     title = "Violin Plot of Abundance by Sample"
+#   )
+#   
+#   # Case 2: Plot by Group, show legend
+#   plot_violinplot(
+#     data,
+#     x_var = "Sample",
+#     y_var = "Abundance",
+#     group_var = "Group",
+#     # Grouping by Group, show legend
+#     output_file = "violinplot_by_group.png",
+#     x_label = "Sample",
+#     y_label = "Log2 Abundance",
+#     title = "Violin Plot of Abundance by Group"
+#   )
+# }

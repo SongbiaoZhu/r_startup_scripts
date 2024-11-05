@@ -110,59 +110,59 @@ plot_stacked_barplot <- function(data,
 }
 
 #' @examples
-if (interactive()) {
-  # Example 1: Creating a stacked barplot with numeric values displayed on the bars.
-  # This dataset contains three samples, each with counts for three categories: "High", "Peak Found", and "NA".
-  # Numeric values will be shown inside the bars, as none of the values are too small to be visible.
-  data <- data.frame(
-    Sample = rep(c("Sample_1", "Sample_2", "Sample_3"), each = 3),
-    Count = c(30, 20, 10, 40, 30, 20, 50, 40, 30),
-    Category = rep(c("High", "Peak Found", "NA"), times = 3)
-  )
-  
-  # Generating the stacked barplot with ordered fill categories and values displayed on bars.
-  # The categories are ordered from "High" at the bottom to "NA" at the top.
-  plot_stacked_barplot(
-    data = data,
-    x_var = "Sample",
-    y_var = "Count",
-    fill_var = "Category",
-    fill_order = c("High", "Peak Found", "NA"),
-    # Controls the order of the stacked categories
-    output_file = "stacked_barplot_example1.png",
-    title = "Protein Identifications by Sample",
-    # Title of the plot
-    x_axis_name = "",
-    # Label for x-axis
-    y_axis_name = "Counts",
-    # Label for y-axis
-    show_values = TRUE  # Displays numeric values inside the bars
-  )
-  
-  # Example 2: Creating a stacked barplot with large counts, where small values are automatically omitted.
-  # This dataset contains larger counts for each sample, with smaller numbers for some categories.
-  # Numeric values will only be displayed for the larger counts to avoid cluttering the plot.
-  data <- data.frame(
-    Sample = rep(c("Sample_1", "Sample_2", "Sample_3"), each = 3),
-    Count = c(1500, 200, 50, 1900, 150, 30, 3200, 120, 20),
-    Category = rep(c("High", "Peak Found", "NA"), times = 3)
-  )
-  
-  # Generating a stacked barplot. Numeric values are displayed for larger counts but are automatically omitted
-  # for very small numbers, making the plot cleaner and easier to interpret.
-  plot_stacked_barplot(
-    data = data,
-    x_var = "Sample",
-    y_var = "Count",
-    fill_var = "Category",
-    fill_order = c("High", "Peak Found", "NA"),
-    # Order of the stacked categories
-    output_file = "stacked_barplot_example2.png",
-    title = "Protein Identifications by Sample with Large Counts",
-    x_axis_name = "",
-    # x-axis label
-    y_axis_name = "Counts",
-    # y-axis label
-    show_values = TRUE  # Numeric values are displayed where appropriate
-  )
-}
+# if (interactive()) {
+#   # Example 1: Creating a stacked barplot with numeric values displayed on the bars.
+#   # This dataset contains three samples, each with counts for three categories: "High", "Peak Found", and "NA".
+#   # Numeric values will be shown inside the bars, as none of the values are too small to be visible.
+#   data <- data.frame(
+#     Sample = rep(c("Sample_1", "Sample_2", "Sample_3"), each = 3),
+#     Count = c(30, 20, 10, 40, 30, 20, 50, 40, 30),
+#     Category = rep(c("High", "Peak Found", "NA"), times = 3)
+#   )
+#   
+#   # Generating the stacked barplot with ordered fill categories and values displayed on bars.
+#   # The categories are ordered from "High" at the bottom to "NA" at the top.
+#   plot_stacked_barplot(
+#     data = data,
+#     x_var = "Sample",
+#     y_var = "Count",
+#     fill_var = "Category",
+#     fill_order = c("High", "Peak Found", "NA"),
+#     # Controls the order of the stacked categories
+#     output_file = "stacked_barplot_example1.png",
+#     title = "Protein Identifications by Sample",
+#     # Title of the plot
+#     x_axis_name = "",
+#     # Label for x-axis
+#     y_axis_name = "Counts",
+#     # Label for y-axis
+#     show_values = TRUE  # Displays numeric values inside the bars
+#   )
+#   
+#   # Example 2: Creating a stacked barplot with large counts, where small values are automatically omitted.
+#   # This dataset contains larger counts for each sample, with smaller numbers for some categories.
+#   # Numeric values will only be displayed for the larger counts to avoid cluttering the plot.
+#   data <- data.frame(
+#     Sample = rep(c("Sample_1", "Sample_2", "Sample_3"), each = 3),
+#     Count = c(1500, 200, 50, 1900, 150, 30, 3200, 120, 20),
+#     Category = rep(c("High", "Peak Found", "NA"), times = 3)
+#   )
+#   
+#   # Generating a stacked barplot. Numeric values are displayed for larger counts but are automatically omitted
+#   # for very small numbers, making the plot cleaner and easier to interpret.
+#   plot_stacked_barplot(
+#     data = data,
+#     x_var = "Sample",
+#     y_var = "Count",
+#     fill_var = "Category",
+#     fill_order = c("High", "Peak Found", "NA"),
+#     # Order of the stacked categories
+#     output_file = "stacked_barplot_example2.png",
+#     title = "Protein Identifications by Sample with Large Counts",
+#     x_axis_name = "",
+#     # x-axis label
+#     y_axis_name = "Counts",
+#     # y-axis label
+#     show_values = TRUE  # Numeric values are displayed where appropriate
+#   )
+# }

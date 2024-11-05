@@ -54,17 +54,17 @@ plot_histogram <- function(data,
   )
 }
 
-#' @examples
-if (interactive()) {
-  # Simulate example data
-  set.seed(123)
-  data <- data.frame(value = rnorm(1000, mean = 50, sd = 10))
-  
-  # Example usage of the plot_histogram function
-  plot_histogram(data,
-                 "value",
-                 "Value",
-                 "Frequency",
-                 "Histogram",
-                 "histogram_example.png")
-}
+#' #' @examples
+#' if (interactive()) {
+#'   # Simulate example data
+#'   set.seed(123)
+#'   data <- data.frame(value = rnorm(1000, mean = 50, sd = 10))
+#'   
+#'   # Example usage of the plot_histogram function
+#'   plot_histogram(data,
+#'                  "value",
+#'                  "Value",
+#'                  "Frequency",
+#'                  "Histogram",
+#'                  "histogram_example.png")
+#' }

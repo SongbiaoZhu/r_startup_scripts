@@ -85,18 +85,18 @@ plot_venn_3sets <- function(set1,
 # --------------------------------------------------
 # Example usage (only runs in interactive sessions)
 # --------------------------------------------------
-if (interactive()) {
-  set.seed(123)
-  set1 <- sample(1:100, 30)
-  set2 <- sample(30:130, 50)
-  set3 <- sample(60:160, 100)
-  
-  # Draw the Venn diagram with custom settings
-  plot_venn_3sets(
-    set1, set2, set3,
-    set1_name = "Group A",
-    set2_name = "Group B",
-    set3_name = "Group C",
-    output_file = "venn_3sets_example.png"
-  )
-}
+# if (interactive()) {
+#   set.seed(123)
+#   set1 <- sample(1:100, 30)
+#   set2 <- sample(30:130, 50)
+#   set3 <- sample(60:160, 100)
+#   
+#   # Draw the Venn diagram with custom settings
+#   plot_venn_3sets(
+#     set1, set2, set3,
+#     set1_name = "Group A",
+#     set2_name = "Group B",
+#     set3_name = "Group C",
+#     output_file = "venn_3sets_example.png"
+#   )
+# }

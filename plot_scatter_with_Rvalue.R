@@ -104,36 +104,36 @@ plot_scatter_with_Rvalue <- function(data,
 # --------------------------------------------------
 # Example usage (only runs in interactive sessions)
 # --------------------------------------------------
-if (interactive()) {
-  # Simulate data and generate scatter plot
-  # Example 1: manually set axis limits and breaks
-  # Example 2: automatically set axis limits and breaks
-  set.seed(42)
-  sample_size <- 5000
-  sample1_abundance <- rnorm(sample_size, mean = 100000, sd = 3000)
-  sample2_abundance <- sample1_abundance + rnorm(sample_size, mean = 1000, sd = 1000)
-  log2_sample1 <- log2(sample1_abundance)
-  log2_sample2 <- log2(sample2_abundance)
-  data <- data.frame(Sample1 = log2_sample1, Sample2 = log2_sample2)
-  
-  plot_scatter_with_Rvalue(
-    data,
-    range.x = c(16.5, 16.75),
-    range.y = c(16.5, 16.75),
-    breaks.x = seq(16.5, 16.75, 0.05),
-    breaks.y = seq(16.5, 16.75, 0.05),
-    x_title = "Custom X Axis Title",
-    y_title = "Custom Y Axis Title",
-    plot_title = "Custom Plot Title",
-    output_file = "scatter_plot_manual_limits.png"
-  )
-  
-  plot_scatter_with_Rvalue(
-    data,
-    x_title = "Custom X Axis Title",
-    y_title = "Custom Y Axis Title",
-    plot_title = "Custom Plot Title",
-    output_file = "scatter_plot_auto_limits.png"
-  )
-}
+# if (interactive()) {
+#   # Simulate data and generate scatter plot
+#   # Example 1: manually set axis limits and breaks
+#   # Example 2: automatically set axis limits and breaks
+#   set.seed(42)
+#   sample_size <- 5000
+#   sample1_abundance <- rnorm(sample_size, mean = 100000, sd = 3000)
+#   sample2_abundance <- sample1_abundance + rnorm(sample_size, mean = 1000, sd = 1000)
+#   log2_sample1 <- log2(sample1_abundance)
+#   log2_sample2 <- log2(sample2_abundance)
+#   data <- data.frame(Sample1 = log2_sample1, Sample2 = log2_sample2)
+#   
+#   plot_scatter_with_Rvalue(
+#     data,
+#     range.x = c(16.5, 16.75),
+#     range.y = c(16.5, 16.75),
+#     breaks.x = seq(16.5, 16.75, 0.05),
+#     breaks.y = seq(16.5, 16.75, 0.05),
+#     x_title = "Custom X Axis Title",
+#     y_title = "Custom Y Axis Title",
+#     plot_title = "Custom Plot Title",
+#     output_file = "scatter_plot_manual_limits.png"
+#   )
+#   
+#   plot_scatter_with_Rvalue(
+#     data,
+#     x_title = "Custom X Axis Title",
+#     y_title = "Custom Y Axis Title",
+#     plot_title = "Custom Plot Title",
+#     output_file = "scatter_plot_auto_limits.png"
+#   )
+# }
 

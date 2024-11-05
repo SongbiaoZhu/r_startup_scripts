@@ -60,17 +60,17 @@ plot_pie_chart <- function(data,
 }
 
 #' @examples
-if (interactive()) {
-  # Simulate example data
-  data <- data.frame(
-    category = c("A", "B", "C", "D"),
-    count = c(30, 20, 40, 10)
-  )
-  
-  # Example usage of the plot_pie_chart function
-  plot_pie_chart(data,
-                 "category",
-                 "count",
-                 "Sample Pie Chart",
-                 "pie_chart_example.png")
-}
+# if (interactive()) {
+#   # Simulate example data
+#   data <- data.frame(
+#     category = c("A", "B", "C", "D"),
+#     count = c(30, 20, 40, 10)
+#   )
+#   
+#   # Example usage of the plot_pie_chart function
+#   plot_pie_chart(data,
+#                  "category",
+#                  "count",
+#                  "Sample Pie Chart",
+#                  "pie_chart_example.png")
+# }
