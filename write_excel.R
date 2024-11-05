@@ -36,8 +36,33 @@ write_excel <- function(df, file_path, sheet_name = "Sheet1") {
   # Step 3: Write the data to the worksheet
   openxlsx::writeData(wb, sheet_name, df)
   
-  # Step 4: Automatically adjust column widths based on content
-  openxlsx::setColWidths(wb, sheet_name, cols = 1:ncol(df), widths = "auto")
+  # Step 4: Automatically adjust column widths based on content, with different handling for numeric and non-numeric columns
+  # Calculate the maximum width for each column based on the length of the longest entry
+  
+  column_widths <- sapply(df, function(col) {
+    # Calculate the auto column width by determining the maximum length of the content in the column
+    if (is.numeric(col)) {
+      # For numeric columns, format the numbers to avoid scientific notation and ensure width is adequate
+      formatted_col <- format(col, scientific = FALSE, digits = 10)
+      max_width <- max(nchar(formatted_col))
+      # Apply a 30% buffer for numeric columns
+      max_width <- max_width * 1.3
+    } else {
+      # For non-numeric columns (e.g., character columns), calculate width as usual
+      max_width <- max(nchar(as.character(col)))
+      # Apply a 30% buffer but cap the max width to 80
+      max_width <- max_width * 1.3
+      max_width <- min(max_width, 70)
+    }
+    
+    # Consider the column header in the width calculation
+    max_width <- max(max_width, nchar(colnames(df)))
+    
+    return(max_width)
+  })
+  
+  # Apply the new column widths
+  openxlsx::setColWidths(wb, sheet_name, cols = 1:ncol(df), widths = column_widths)
   
   # Step 5: Apply styling to header row (Bold, centered, white text on blue background)
   header_style <- openxlsx::createStyle(
