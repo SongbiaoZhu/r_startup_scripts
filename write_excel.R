@@ -12,6 +12,9 @@
 
 write_excel <- function(data, file_path, sheet_names = NULL, header_style_type = "dark_grey_bg") {
   
+  options("openxlsx.maxWidth" = 60) 
+  options("openxlsx.minWidth" = 5)
+  
   # If data is a single data frame, wrap it in a list
   if (is.data.frame(data)) {
     data <- list(Sheet1 = data)
@@ -44,23 +47,12 @@ write_excel <- function(data, file_path, sheet_names = NULL, header_style_type =
     
     # Add a worksheet for each data frame
     openxlsx::addWorksheet(wb, sheet_name)
+    # Write data first
     openxlsx::writeData(wb, sheet_name, df)
     
     # Step 3: Automatically adjust column widths
-    column_widths <- sapply(df, function(col) {
-      if (is.numeric(col)) {
-        formatted_col <- format(col, scientific = FALSE, digits = 10)
-        max_width <- max(nchar(formatted_col))
-        max_width <- max_width * 1.3
-      } else {
-        max_width <- max(nchar(as.character(col)))
-        max_width <- max_width * 1.3
-        max_width <- min(max_width, 70)
-      }
-      max(max_width, nchar(colnames(df)))
-    })
-    openxlsx::setColWidths(wb, sheet_name, cols = 1:ncol(df), widths = column_widths)
-    
+    openxlsx::setColWidths(wb, sheet_name, cols = 1:ncol(df), widths = "auto")
+
     # Step 4: Apply header style
     header_style <- switch(header_style_type,
                            "blue_bg" = openxlsx::createStyle(
