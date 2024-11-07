@@ -85,7 +85,7 @@ write_excel <- function(data, file_path, sheet_names = NULL, header_style_type =
     openxlsx::addStyle(wb, sheet_name, style = header_style, rows = 1, cols = 1:ncol(df), gridExpand = TRUE)
     
     # Step 5: Adjust row heights
-    openxlsx::setRowHeights(wb, sheet_name, rows = 1, heights = 20)  # Header
+    openxlsx::setRowHeights(wb, sheet_name, rows = 1, heights = 25)  # Header
     openxlsx::setRowHeights(wb, sheet_name, rows = 2:(nrow(df) + 1), heights = 18)
     
     # Step 6: Apply border style for data rows
