@@ -6,7 +6,7 @@
 #' @param data A data frame or a list of data frames. If a list is provided, each data frame will be written to a separate sheet.
 #' @param file_path Full path (including file name) where the Excel file will be saved.
 #' @param sheet_names A single sheet name (if `data` is a data frame) or a character vector of sheet names (if `data` is a list). Defaults to "Sheet1" for single data frame or "Sheet1", "Sheet2", etc., for unnamed lists.
-#' @param header_style_type Style for the header row. Options: "blue_background", "green_bg", "dark_grey_bg" (default: "dark_grey_bg").
+#' @param header_style_type Style for the header row. Options: "blue_bg", "green_bg", "dark_grey_bg" (default: "dark_grey_bg").
 #'
 #' @return An Excel file saved at the specified location.
 
@@ -63,7 +63,7 @@ write_excel <- function(data, file_path, sheet_names = NULL, header_style_type =
     
     # Step 4: Apply header style
     header_style <- switch(header_style_type,
-                           "blue_background" = openxlsx::createStyle(
+                           "blue_bg" = openxlsx::createStyle(
                              fontSize = 14,
                              fontColour = "white",
                              fgFill = "#4F81BD",
@@ -87,7 +87,7 @@ write_excel <- function(data, file_path, sheet_names = NULL, header_style_type =
                              valign = "center",
                              textDecoration = "bold"
                            ),
-                           stop("Unknown header style type. Choose one of: 'blue_background', 'green_bg', 'dark_grey_bg'.")
+                           stop("Unknown header style type. Choose one of: 'blue_bg', 'green_bg', 'dark_grey_bg'.")
     )
     
     openxlsx::addStyle(wb, sheet_name, style = header_style, rows = 1, cols = 1:ncol(df), gridExpand = TRUE)
@@ -113,7 +113,7 @@ write_excel <- function(data, file_path, sheet_names = NULL, header_style_type =
   openxlsx::saveWorkbook(wb, file_path, overwrite = TRUE)
   
   # Inform the user
-  message("Data has been written to Excel in a publication-ready format.")
+  message("Data has been written to Excel.")
 }
 #' @examples
 # if(interactive()){
