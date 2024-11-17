@@ -105,7 +105,7 @@ write_excel <- function(data, file_path, sheet_names = NULL, header_style_type =
   openxlsx::saveWorkbook(wb, file_path, overwrite = TRUE)
   
   # Inform the user
-  message("Data has been written to Excel.")
+  message("Data has been written to: ", file_path)
 }
 #' @examples
 # if(interactive()){
